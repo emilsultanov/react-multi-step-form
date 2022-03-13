@@ -13,3 +13,14 @@ export interface IForm{
   formId: number;
   form: ReactNode
 }
+
+export interface IFormData{
+  firstname: string;
+  lastname: string;
+  username: string;
+  email: string;
+  password: string;
+  country: string;
+  city: string;
+  age: number;
+}

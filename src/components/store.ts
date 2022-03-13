@@ -22,24 +22,8 @@ export const steps: IStep[] = [
   {
     stepId: 3,
     prevStepId: 2,
-    nextStepId: 4,
-    stepLabel: 'Third step',
-    isSelected: false,
-    isValidated: false
-  },
-  {
-    stepId: 4,
-    prevStepId: 3,
-    nextStepId: 5,
-    stepLabel: 'Fourth step',
-    isSelected: false,
-    isValidated: false
-  },
-  {
-    stepId: 5,
-    prevStepId: 4,
     nextStepId: undefined,
-    stepLabel: 'Fifth step',
+    stepLabel: 'Third step',
     isSelected: false,
     isValidated: false
   },
