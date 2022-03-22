@@ -1,12 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import {RecoilRoot} from "recoil";
+import {CssBaseline} from "@mui/material";
+import {ThemeProvider} from "@mui/material/styles";
+
+import App from './App';
+
+import {themeWithResponsiveFonts} from "./configs/theme";
+
 
 ReactDOM.render(
   <React.StrictMode>
     <RecoilRoot>
-      <App/>
+      <ThemeProvider theme={themeWithResponsiveFonts}>
+        <CssBaseline/>
+        <App/>
+      </ThemeProvider>
     </RecoilRoot>
   </React.StrictMode>,
   document.getElementById('root')
