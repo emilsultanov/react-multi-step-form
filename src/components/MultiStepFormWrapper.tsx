@@ -72,6 +72,7 @@ export function MultiStepFormWrapper(props: IMultiStepFormWrapperProps) {
     if (_currentStep) setCurrentStep(_currentStep);
   }, [steps, isLastStep, currentStep]);
 
+  const Form = forms[currentStep.stepId - 1];
 
   return (
     <Box>
@@ -90,7 +91,7 @@ export function MultiStepFormWrapper(props: IMultiStepFormWrapperProps) {
               isFirstStep={isFirstStep}
               isLastStep={isLastStep}
             >
-              {forms[currentStep.stepId - 1]}
+              {Form}
             </MultiStepFormContent>
           </Grid>
         </Grid>
