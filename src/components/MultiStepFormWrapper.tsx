@@ -1,21 +1,20 @@
 import React, {useCallback, useState} from 'react';
 import {Box, Container, Grid} from "@mui/material";
-import {MultiStepFormHeader} from "./MultiStepFormHeader";
 import {MultiStepFormSidebar} from "./MultiStepFormSidebar";
 import {MultiStepFormContent} from "./MultiStepFormContent";
 import {StepList} from "./StepList";
 
 import {IStep} from "./types";
-import {Form1} from "./Form1";
-import {Form2} from "./Form2";
-import {Form3} from "./Form3";
+import {AccountDetails} from "./AccountDetails";
+import {PersonalDetails} from "./PersonalDetails";
+import {PaymentDetails} from "./PaymentDetails";
 
 
 interface IMultiStepFormWrapperProps {
 }
 
 
-const forms = [<Form1/>, <Form2/>, <Form3/>]
+const forms = [<AccountDetails/>, <PersonalDetails/>, <PaymentDetails/>]
 
 export const initialSteps: IStep[] = [
   {
@@ -48,6 +47,7 @@ export function MultiStepFormWrapper(props: IMultiStepFormWrapperProps) {
 
   const [steps, setSteps] = useState<IStep[]>(initialSteps);
   const [currentStep, setCurrentStep] = useState<IStep>(initialSteps[0]);
+  const [formData, setFormData] = useState({})
 
   const lastStepIndex: number = steps.length - 1;
   const isFirstStep: boolean = currentStep.stepId === 1;
@@ -75,9 +75,8 @@ export function MultiStepFormWrapper(props: IMultiStepFormWrapperProps) {
   const Form = forms[currentStep.stepId - 1];
 
   return (
-    <Box>
+    <Box pt={4}>
       <Container fixed>
-        <MultiStepFormHeader/>
         <Grid container spacing={2}>
           <Grid item md={4}>
             <MultiStepFormSidebar>

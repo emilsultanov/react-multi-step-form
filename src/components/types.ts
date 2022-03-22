@@ -11,7 +11,7 @@ export interface IStep {
 
 export interface IForm{
   formId: number;
-  form: ReactNode
+  form: ReactNode,
 }
 
 export interface IFormData{
