@@ -1,26 +1,26 @@
 import React from 'react';
 import {List} from "@mui/material";
-import {IStep} from "./types";
 import {Step} from "./Step";
+import {IStep} from "./types";
 
 
 interface IStepListProps {
-  currentStep: IStep;
-  steps: IStep[]
+  steps: Array<Omit<IStep, 'stepForm'>>;
+  currentStepId: number
 }
 
 
-export function StepList({steps, currentStep}: IStepListProps) {
+export function StepList({steps,currentStepId}: IStepListProps) {
+
   return (
     <List disablePadding>
       {
-        steps.map(({stepId, stepLabel, isValidated}) =>
+        steps.map(({id, label}) =>
           <Step
-            key={stepId}
-            stepId={stepId}
-            stepLabel={stepLabel}
-            isValidated={isValidated}
-            selected={stepId === currentStep.stepId}
+            id={id}
+            key={id}
+            label={label}
+            isValidated={id<currentStepId}
           />
         )
       }

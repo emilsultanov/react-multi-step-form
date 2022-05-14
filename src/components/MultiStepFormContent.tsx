@@ -5,16 +5,16 @@ interface IMultiStepFormContentProps {
   children: ReactNode;
   isLastStep: boolean;
   isFirstStep: boolean;
-  onPrevClick: () => void;
-  onNextClick: () => void;
+  handlePrevClick: () => void;
+  handleNextClick: () => void;
 }
 
 export function MultiStepFormContent({
                                        children,
                                        isFirstStep,
                                        isLastStep,
-                                       onPrevClick,
-                                       onNextClick
+                                       handlePrevClick,
+                                       handleNextClick
                                      }: IMultiStepFormContentProps) {
 
 
@@ -29,12 +29,12 @@ export function MultiStepFormContent({
             <Button variant="outlined" color="error">Clear</Button>
           </Grid>
           <Grid item>
-            <Button variant={'contained'} disabled={isFirstStep} onClick={() => onPrevClick()}>Prev</Button>
+            <Button variant={'contained'} disabled={isFirstStep} onClick={handlePrevClick}>Prev</Button>
             <Button
               color={'success'}
               variant={'contained'}
               disabled={isLastStep}
-              onClick={() => onNextClick()}
+              onClick={handleNextClick}
             >
               {isLastStep ? 'Submit' : 'Next'}
             </Button>

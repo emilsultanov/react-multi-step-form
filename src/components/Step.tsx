@@ -1,20 +1,20 @@
 import React from 'react';
-import {ListItemButton, ListItemButtonProps, ListItemIcon, ListItemText} from "@mui/material";
+import {ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
 import {CheckCircle, CheckCircleOutlined} from "@mui/icons-material";
 
 import {IStep} from "./types";
 
-
-interface IStepProps extends Omit<IStep, 'prevStepId' | 'nextStepId' | 'isSelected'>, ListItemButtonProps {
+interface Props extends Omit<IStep, 'stepForm'> {
+  isValidated: boolean
 }
 
-export function Step({stepId, stepLabel, isValidated, ...rest}: IStepProps) {
+export function Step({id, label, isValidated}: Props) {
   return (
-    <ListItemButton {...rest}>
+    <ListItemButton>
       <ListItemIcon>
-        {stepId}
+        {id}
       </ListItemIcon>
-      <ListItemText primary={stepLabel}/>
+      <ListItemText primary={label}/>
       <ListItemIcon>
         {isValidated ? <CheckCircle/> : <CheckCircleOutlined/>}
       </ListItemIcon>

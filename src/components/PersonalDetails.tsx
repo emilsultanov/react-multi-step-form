@@ -88,6 +88,7 @@ export function PersonalDetails() {
       <TextField
         select
         fullWidth
+        defaultValue={''}
         variant={'outlined'}
         autoComplete={'off'}
         name={'country'}
@@ -97,7 +98,7 @@ export function PersonalDetails() {
       >
         {
           countries.map(country => (
-            <MenuItem key={country} value={country}>
+            <MenuItem key={country} value={country.toLowerCase()}>
               {country}
             </MenuItem>
           ))
@@ -112,7 +113,7 @@ export function PersonalDetails() {
         >
           {
             genders.map(({label, value}) => (
-              <FormControlLabel value={value} control={<Radio/>} label={label}/>
+              <FormControlLabel key={value} value={value} control={<Radio/>} label={label}/>
             ))
           }
         </RadioGroup>
