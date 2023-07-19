@@ -1,35 +1,55 @@
 import React from 'react';
 import {Box} from "@mui/material";
-import {MultiStepFormWrapper} from "./components/MultiStepFormWrapper";
-import {AccountDetails} from "./components/AccountDetails";
-import {PaymentDetails} from "./components/PaymentDetails";
-import {PersonalDetails} from "./components/PersonalDetails";
-import {IStep} from "./components/types";
+import {MultiStepForm, StepProps} from "./components/MultiStepForm";
 
 
-const steps: Array<IStep> = [
+const initialData = {
+  firstName: '',
+  lastName: '',
+  age: '',
+  email: '',
+  username: '',
+  experience: ''
+}
+
+const Step1 = (props: any) => {
+  return <div>Step-1</div>
+};
+
+const Step2 = (props: any) => {
+  return <div>Step-2</div>
+};
+
+const Step3 = (props: any) => {
+  return <div>Step-3</div>
+};
+
+const steps: Array<StepProps> = [
   {
-    id: 1,
-    label: 'Account Details',
-    stepForm: AccountDetails,
+    label: 'Step-1',
+    step: Step1
   },
   {
-    id: 2,
-    label: 'Payment Details',
-    stepForm: PaymentDetails,
+    label: 'Step-2',
+    step: Step2
   },
   {
-    id: 3,
-    label: 'Personal Details',
-    stepForm: PersonalDetails,
-  }
-];
+    label: 'Step-3',
+    step: Step3
+  },
+]
+
+
+
 
 
 function App() {
   return (
     <Box className="app">
-      <MultiStepFormWrapper steps={steps}/>
+      <MultiStepForm
+        steps={steps}
+        initialData={initialData}
+      />
     </Box>
   );
 }
