@@ -1,20 +1,32 @@
 import {Grid} from "@mui/material";
-import React, {ReactNode} from "react";
+import React, {ElementType, useState} from "react";
+import {StepsList} from "./StepsList";
+
+
+export interface StepProps {
+  label: string;
+  form: ElementType
+}
 
 export interface MultiStepFormProps {
-  stepsList: ReactNode;
-  formsList: ReactNode;
+  steps: Array<StepProps>
 }
 
 
-export function MultiStepForm({stepsList, formsList}: MultiStepFormProps) {
+export function MultiStepForm({steps}: MultiStepFormProps) {
+  const [activeStepIndex, setActiveStepIndex] = useState(0);
+  
+  const stepLabels = steps.map(step => step.label);
+  
+  const Form = steps[activeStepIndex].form;
+  
   return (
 	 <Grid container spacing={2}>
 		<Grid item xs={4}>
-		  {stepsList}
+		  <StepsList steps={stepLabels}/>
 		</Grid>
 		<Grid item xs={8}>
-		  {formsList}
+		  <Form/>
 		</Grid>
 	 </Grid>
   )

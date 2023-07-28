@@ -1,24 +1,25 @@
 import React from 'react';
 import {Box, Container} from "@mui/material";
-import {MultiStepForm} from "./components/MultiStepForm";
-import {StepProps, StepsList} from "./components/MultiStepForm/StepsList";
-import {FormsList} from "./components/MultiStepForm/FormsList";
+import {MultiStepForm, StepProps} from "./components/MultiStepForm";
+import {Form_1} from "./Forms/Form_1";
+import {Form_2} from "./Forms/Form_2";
+import {Form_3} from "./Forms/Form_3";
 
 
 const steps: Array<StepProps> = [
   {
 	 label: 'Step-1',
-	 formIndex: 1
+	 form: Form_1
   },
   {
 	 label: 'Step-2',
-	 formIndex: 2
+	 form: Form_2
   },
   {
 	 label: 'Step-3',
-	 formIndex: 3
-  },
-]
+	 form: Form_3
+  }
+];
 
 
 function App() {
@@ -26,8 +27,7 @@ function App() {
 	 <Box className="app">
 		<Container sx={{paddingY: '50px'}}>
 		  <MultiStepForm
-		  	stepsList={<StepsList steps={steps}/>}
-			formsList={<FormsList />}
+			 steps={steps}
 		  />
 		</Container>
 	 </Box>

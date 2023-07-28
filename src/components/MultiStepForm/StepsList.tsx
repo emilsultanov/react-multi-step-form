@@ -3,18 +3,17 @@ import React from "react";
 
 export interface StepProps {
   label: string;
-  formIndex: number
 }
 
 export interface StepsListProps {
-  steps: Array<StepProps>
+  steps: Array<string>
 }
 
 export function StepsList({steps}: StepsListProps) {
   return (<List>
 	 {steps.map((step, index) => (<ListItem key={index} disablePadding>
 		<ListItemButton>
-		  <ListItemText primary={step.label}/>
+		  <ListItemText primary={step}/>
 		</ListItemButton>
 	 </ListItem>))}
   </List>)

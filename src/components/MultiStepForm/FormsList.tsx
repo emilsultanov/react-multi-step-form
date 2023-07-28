@@ -1,15 +1,23 @@
 import {Box} from "@mui/material";
-import {Form_1} from "../../Forms/Form_1";
-import {Form_2} from "../../Forms/Form_2";
-import {Form_3} from "../../Forms/Form_3";
+import {ElementType} from "react";
+
+export interface FormProps {
+  component: ElementType;
+}
+
+export interface FormsListProps {
+  forms: Array<FormProps>
+}
 
 
-export function FormsList(){
-  return(
+export function FormsList({forms}: FormsListProps) {
+  return (
 	 <Box>
-		<Form_1 />
-		<Form_2 />
-		<Form_3 />
+		{
+		  forms.map((form, index) => (
+			 <form.component key={index}/>
+		  ))
+		}
 	 </Box>
   )
 }
