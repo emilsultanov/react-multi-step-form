@@ -1,25 +1,21 @@
 import {List, ListItem, ListItemButton, ListItemText} from "@mui/material";
 import React from "react";
 
+export interface StepProps {
+  label: string;
+  formIndex: number
+}
 
-export function StepsList(){
-  return(
-	 <List>
-		<ListItem disablePadding>
-		  <ListItemButton>
-			 <ListItemText primary="Step-1" />
-		  </ListItemButton>
-		</ListItem>
-		<ListItem disablePadding>
-		  <ListItemButton>
-			 <ListItemText primary="Step-2" />
-		  </ListItemButton>
-		</ListItem>
-		<ListItem disablePadding>
-		  <ListItemButton>
-			 <ListItemText primary="Step-3" />
-		  </ListItemButton>
-		</ListItem>
-	 </List>
-  )
+export interface StepsListProps {
+  steps: Array<StepProps>
+}
+
+export function StepsList({steps}: StepsListProps) {
+  return (<List>
+	 {steps.map((step, index) => (<ListItem key={index} disablePadding>
+		<ListItemButton>
+		  <ListItemText primary={step.label}/>
+		</ListItemButton>
+	 </ListItem>))}
+  </List>)
 }
