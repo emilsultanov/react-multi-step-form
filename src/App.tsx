@@ -1,38 +1,20 @@
 import React from 'react';
-import {Box, Container, Grid, List, ListItem, ListItemButton, ListItemText} from "@mui/material";
-
+import {Box, Container} from "@mui/material";
+import {MultiStepForm} from "./components/MultiStepForm";
+import {StepsList} from "./components/MultiStepForm/StepsList";
+import {FormsList} from "./components/MultiStepForm/FormsList";
 
 
 function App() {
   return (
-    <Box className="app">
-      <Container sx={{paddingY: '50px'}}>
-        <Grid container spacing={2}>
-          <Grid item xs={4}>
-            <List>
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemText primary="Step-1" />
-                </ListItemButton>
-              </ListItem>
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemText primary="Step-2" />
-                </ListItemButton>
-              </ListItem>
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemText primary="Step-3" />
-                </ListItemButton>
-              </ListItem>
-            </List>
-          </Grid>
-          <Grid item xs={8}>
-            right
-          </Grid>
-        </Grid>
-      </Container>
-    </Box>
+	 <Box className="app">
+		<Container sx={{paddingY: '50px'}}>
+		  <MultiStepForm
+		  	stepsList={<StepsList/>}
+			formsList={<FormsList />}
+		  />
+		</Container>
+	 </Box>
   );
 }
 
